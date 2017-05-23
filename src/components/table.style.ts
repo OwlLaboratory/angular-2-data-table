@@ -16,6 +16,7 @@ export const TABLE_STYLE = `
 /* I can't use the bootstrap striped table, because of the expandable rows */
 :host /deep/ .row-odd {
     background-color: #F6F6F6;
+    user-select: inherit;
 }
 :host /deep/ .row-even {
 }

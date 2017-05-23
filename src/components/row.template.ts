@@ -14,13 +14,13 @@ export const ROW_TEMPLATE = `
         <span class="glyphicon glyphicon-triangle-bottom" [hide]="!expanded"></span>
     </td>
     <td [hide]="!dataTable.indexColumnVisible" class="index-column" [textContent]="displayIndex"></td>
-    <td [hide]="!dataTable.selectColumnVisible" class="select-column">
-        <input type="checkbox" [(ngModel)]="selected"/>
-    </td>
     <td *ngFor="let column of dataTable.columns" [hide]="!column.visible" [ngClass]="column.styleClassObject" class="data-column"
         [style.background-color]="column.getCellColor(_this, index)">
         <div *ngIf="!column.cellTemplate" [textContent]="item[column.property]"></div>
         <div *ngIf="column.cellTemplate" [ngTemplateOutlet]="column.cellTemplate" [ngOutletContext]="{column: column, row: _this, item: item}"></div>
+    </td>
+    <td [hide]="!dataTable.selectColumnVisible" class="select-column">
+        <input type="checkbox" [(ngModel)]="selected"/>
     </td>
 </tr>
 <tr *ngIf="dataTable.expandableRows" [hide]="!expanded" class="row-expansion">

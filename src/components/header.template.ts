@@ -4,11 +4,11 @@ export const HEADER_TEMPLATE = `
     <div class="button-panel">
         <button type="button" class="btn btn-default btn-sm refresh-button"
             (click)="dataTable.reloadItems()">
-            <span class="glyphicon glyphicon-refresh"></span>
+            <span class="fa fa-refresh"></span>
         </button>
         <button type="button" class="btn btn-default btn-sm column-selector-button" [class.active]="columnSelectorOpen"
             (click)="columnSelectorOpen = !columnSelectorOpen; $event.stopPropagation()" >
-            <span class="glyphicon glyphicon-list"></span>
+            <span class="fa fa-list"></span>
         </button>
         <div class="column-selector-wrapper" (click)="$event.stopPropagation()">
             <div *ngIf="columnSelectorOpen" class="column-selector-box panel panel-default">

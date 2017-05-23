@@ -10,9 +10,6 @@ export const TABLE_TEMPLATE = `
                     <th [hide]="!indexColumnVisible" class="index-column-header">
                         <span [textContent]="indexColumnHeader"></span>
                     </th>
-                    <th [hide]="!selectColumnVisible" class="select-column-header">
-                        <input [hide]="!multiSelect" type="checkbox" [(ngModel)]="selectAllCheckbox"/>
-                    </th>
                     <th *ngFor="let column of columns" #th [hide]="!column.visible" (click)="headerClicked(column, $event)"
                         [class.sortable]="column.sortable" [class.resizable]="column.resizable"
                         [ngClass]="column.styleClassObject" class="column-header" [style.width]="column.width | px">
@@ -26,6 +23,9 @@ export const TABLE_TEMPLATE = `
                             </span>
                         </span>
                         <span *ngIf="column.resizable" class="column-resize-handle" (mousedown)="resizeColumnStart($event, column, th)"></span>
+                    </th>
+                    <th [hide]="!selectColumnVisible" class="select-column-header">
+                        <input [hide]="!multiSelect" type="checkbox" [(ngModel)]="selectAllCheckbox"/>
                     </th>
                 </tr>
             </thead>

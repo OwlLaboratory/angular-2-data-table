@@ -214,15 +214,15 @@ export class DataTable implements DataTableParams, OnInit {
     @Output() headerClick = new EventEmitter();
     @Output() cellClick = new EventEmitter();
 
-    private rowClicked(row: DataTableRow, event) {
+  public rowClicked(row: DataTableRow, event) {
         this.rowClick.emit({ row, event });
     }
 
-    private rowDoubleClicked(row: DataTableRow, event) {
+    public rowDoubleClicked(row: DataTableRow, event) {
         this.rowDoubleClick.emit({ row, event });
     }
 
-    private headerClicked(column: DataTableColumn, event: MouseEvent) {
+  public headerClicked(column: DataTableColumn, event: MouseEvent) {
         if (!this._resizeInProgress) {
             this.headerClick.emit({ column, event });
         } else {
@@ -230,7 +230,7 @@ export class DataTable implements DataTableParams, OnInit {
         }
     }
 
-    private cellClicked(column: DataTableColumn, row: DataTableRow, event: MouseEvent) {
+  public cellClicked(column: DataTableColumn, row: DataTableRow, event: MouseEvent) {
         this.cellClick.emit({ row, column, event });
     }
 
@@ -250,7 +250,7 @@ export class DataTable implements DataTableParams, OnInit {
         return params;
     }
 
-    private sortColumn(column: DataTableColumn) {
+  public sortColumn(column: DataTableColumn) {
         if (column.sortable) {
             let ascending = this.sortBy === column.property ? !this.sortAsc : true;
             this.sort(column.property, ascending);
@@ -268,7 +268,7 @@ export class DataTable implements DataTableParams, OnInit {
         return count;
     }
 
-    private getRowColor(item: any, index: number, row: DataTableRow) {
+  public getRowColor(item: any, index: number, row: DataTableRow) {
         if (this.rowColors !== undefined) {
             return (<RowCallback>this.rowColors)(item, row, index);
         }
@@ -300,7 +300,7 @@ export class DataTable implements DataTableParams, OnInit {
         if (this.multiSelect) {
             let index = this.selectedRows.indexOf(row);
             if (row.selected && index < 0) {
-                this.selectedRows.push(row);
+                this.selectedRows.push(row.item.id);
             } else if (!row.selected && index >= 0) {
                 this.selectedRows.splice(index, 1);
             }
