@@ -5,6 +5,8 @@ import { DataTable } from './table.component';
 import { ROW_TEMPLATE } from './row.template';
 import { ROW_STYLE } from "./row.style";
 
+export type RowCallback = (item: any, row: DataTableRow, index: number) => string;
+
 
 @Component({
     selector: '[dataTableRow]',

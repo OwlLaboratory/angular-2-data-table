@@ -5,13 +5,28 @@ import {
 import { DataTableColumn } from './column.component';
 import { DataTableRow } from './row.component';
 import { DataTableParams } from './types';
-import { RowCallback } from './types';
-import { DataTableTranslations, defaultTranslations } from './types';
 import { drag } from '../utils/drag';
 import { TABLE_TEMPLATE } from './table.template';
 import { TABLE_STYLE } from "./table.style";
 
 
+export interface DataTableTranslations {
+  indexColumn: string;
+  selectColumn: string;
+  expandColumn: string;
+  paginationLimit: string;
+  paginationRange: string;
+}
+
+export type RowCallback = (item: any, row: DataTableRow, index: number) => string;
+
+export var defaultTranslations = <DataTableTranslations>{
+  indexColumn: 'index',
+  selectColumn: 'select',
+  expandColumn: 'expand',
+  paginationLimit: 'Limit',
+  paginationRange: 'Results'
+};
 
 @Component({
   selector: 'data-table',

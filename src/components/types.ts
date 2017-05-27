@@ -4,8 +4,6 @@ import { DataTableColumn } from './column.component';
 
 export type RowCallback = (item: any, row: DataTableRow, index: number) => string;
 
-export type CellCallback = (item: any, row: DataTableRow, column: DataTableColumn, index: number) => string;
-
 // export type HeaderCallback = (column: DataTableColumn) => string;
 
 
